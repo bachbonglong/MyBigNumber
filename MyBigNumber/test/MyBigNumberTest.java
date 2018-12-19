@@ -106,8 +106,8 @@ public class MyBigNumberTest {
     @Test (expected = NumberFormatException.class)
     public void testSum5() {
         System.out.println("\n#Testcase 5:");
-        String s1 = "-10";
-        String s2 = "10";
+        String s1 = "10";
+        String s2 = ".10";
         System.out.println("A = " + s1);
         System.out.println("B = " + s2);
         MyBigNumber instance = new MyBigNumber();
@@ -120,69 +120,69 @@ public class MyBigNumberTest {
     /**
      * Test of sum method, of class MyBigNumber.
      */
-    @Test
+    @Test (expected = NumberFormatException.class)
     public void testSum6() {
         System.out.println("\n#Testcase 6:");
-        String s1 = "0";
-        String s2 = "0";
+        String s1 = ".10";
+        String s2 = "?10";
         System.out.println("A = " + s1);
         System.out.println("B = " + s2);
         MyBigNumber instance = new MyBigNumber();
-        String expResult = "0";
+        //String expResult = "0";
         String result = instance.sum(s1, s2);
         System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
-        assertEquals(expResult, result);
+        //assertEquals(expResult, result);
     }
     
     /**
      * Test of sum method, of class MyBigNumber.
      */
-    @Test
+    @Test (expected = NumberFormatException.class)
     public void testSum7() {
         System.out.println("\n#Testcase 7:");
-        String s1 = "123";
+        String s1 = "-123";
         String s2 = "123";
         System.out.println("A = " + s1);
         System.out.println("B = " + s2);
         MyBigNumber instance = new MyBigNumber();
-        String expResult = "246";
+        //String expResult = "246";
         String result = instance.sum(s1, s2);
         System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
-        assertEquals(expResult, result);
+        //assertEquals(expResult, result);
     }
 
     /**
      * Test of sum method, of class MyBigNumber.
      */
-    @Test
+    @Test (expected = NumberFormatException.class)
     public void testSum8() {
         System.out.println("\n#Testcase 8:");
         String s1 = "1996";
-        String s2 = "2018";
+        String s2 = "-2018";
         System.out.println("A = " + s1);
         System.out.println("B = " + s2);
         MyBigNumber instance = new MyBigNumber();
-        String expResult = "4014";
+        //String expResult = "4014";
         String result = instance.sum(s1, s2);
         System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
-        assertEquals(expResult, result);
+        //assertEquals(expResult, result);
     }
     
     /**
      * Test of sum method, of class MyBigNumber.
      */
-    @Test
+    @Test (expected = NumberFormatException.class)
     public void testSum9() {
         System.out.println("\n#Testcase 9:");
-        String s1 = "1000";
-        String s2 = "9999";
+        String s1 = "-20";
+        String s2 = "-30";
         System.out.println("A = " + s1);
         System.out.println("B = " + s2);
         MyBigNumber instance = new MyBigNumber();
-        String expResult = "10999";
+        //String expResult = "10999";
         String result = instance.sum(s1, s2);
         System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
-        assertEquals(expResult, result);
+        //assertEquals(expResult, result);
     }
     
     /**
@@ -191,12 +191,38 @@ public class MyBigNumberTest {
     @Test
     public void testSum10() {
         System.out.println("\n#Testcase 10:");
-        String s1 = "0";
-        String s2 = "9999";
+        String s1 = "0111";
+        String s2 = "111";
         System.out.println("A = " + s1);
         System.out.println("B = " + s2);
         MyBigNumber instance = new MyBigNumber();
-        String expResult = "9999";
+        String expResult = "222";
+        String result = instance.sum(s1, s2);
+        System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSum11() {
+        System.out.println("\n#Testcase 10:");
+        String s1 = "222";
+        String s2 = "0222";
+        System.out.println("A = " + s1);
+        System.out.println("B = " + s2);
+        MyBigNumber instance = new MyBigNumber();
+        String expResult = "444";
+        String result = instance.sum(s1, s2);
+        System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSum12() {
+        System.out.println("\n#Testcase 10:");
+        String s1 = "0345";
+        String s2 = "0567";
+        System.out.println("A = " + s1);
+        System.out.println("B = " + s2);
+        MyBigNumber instance = new MyBigNumber();
+        String expResult = "912";
         String result = instance.sum(s1, s2);
         System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
         assertEquals(expResult, result);
