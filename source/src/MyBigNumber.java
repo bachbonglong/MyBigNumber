@@ -33,6 +33,7 @@ class MyBigNumber implements IStrCalculator {
     public String sum(final String s1,final String s2) {       
         
         try {
+            
             // kiểm tra tính hợp lệ của tham số s1
             for (char c: s1.toCharArray()) {
                 if (c - '0' < 0 || c - '0' > 9) {
@@ -47,6 +48,7 @@ class MyBigNumber implements IStrCalculator {
                 }
             }
         } catch (ParameterFormatException ex) {
+            
             //System.out.println("Ban nhap so sai roi");
             System.out.println(ex);
             return "ParameterFormatException";
