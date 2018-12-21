@@ -203,7 +203,7 @@ public class MyBigNumberTest {
     }
     @Test
     public void testSum11() {
-        System.out.println("\n#Testcase 10:");
+        System.out.println("\n#Testcase 11:");
         String s1 = "222";
         String s2 = "0222";
         System.out.println("A = " + s1);
@@ -216,7 +216,7 @@ public class MyBigNumberTest {
     }
     @Test
     public void testSum12() {
-        System.out.println("\n#Testcase 10:");
+        System.out.println("\n#Testcase 12:");
         String s1 = "0345";
         String s2 = "0567";
         System.out.println("A = " + s1);
@@ -227,4 +227,46 @@ public class MyBigNumberTest {
         System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
         assertEquals(expResult, result);
     }
+    @Test
+    public void testSum13() {
+        System.out.println("\n#Testcase 13:");
+        String s1 = "0";
+        String s2 = "999";
+        System.out.println("A = " + s1);
+        System.out.println("B = " + s2);
+        MyBigNumber instance = new MyBigNumber();
+        String expResult = "999";
+        String result = instance.sum(s1, s2);
+        System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSum14() {
+        System.out.println("\n#Testcase 14:");
+        String s1 = "888";
+        String s2 = "0";
+        System.out.println("A = " + s1);
+        System.out.println("B = " + s2);
+        MyBigNumber instance = new MyBigNumber();
+        String expResult = "888";
+        String result = instance.sum(s1, s2);
+        System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSum15() {
+        System.out.println("\n#Testcase 15:");
+        String s1 = "888";
+        String s2 = "999";
+        System.out.println("A = " + s1);
+        System.out.println("B = " + s2);
+        MyBigNumber instance = new MyBigNumber();
+        String expResult = "1887";
+        String result = instance.sum(s1, s2);
+        System.out.println(instance.getS1() + " + " + instance.getS2() + " = " + result);
+        assertEquals(expResult, result);
+    }
+    
+    
 }
+        
