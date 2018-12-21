@@ -23,7 +23,7 @@ public class MyBigNumberTester {
         System.out.println("\t\t\t   ~ Bai giai ~");
         MyBigNumber myBigNumber = new MyBigNumber();
         String result = myBigNumber.sum(s1,s2);
-        if (!result.equals("")) {
+        if (!result.equals("ParameterFormatException")) {
             System.out.println(myBigNumber.getS1() + " + " + myBigNumber.getS2() + " = " + result);
         }
     }
