@@ -1,4 +1,4 @@
-﻿import java.time.LocalDateTime; 
+import java.time.LocalDateTime; 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -32,11 +32,6 @@ class MyBigNumber implements IStrCalculator {
     @Override
     public String sum(final String s1,final String s2) {       
         
-        // kiểm tra tính hợp lệ: return exception nếu có tham số rỗng
-        if (s1.equals("") || s2.equals("")) {
-            throw new NumberFormatException("Ban nhap so sai roi");
-        }
-        
         // kiểm tra tính hợp lệ của tham số s1
         for (char c: s1.toCharArray()) {
             if (c - '0' < 0 || c - '0' > 9) {
@@ -52,8 +47,8 @@ class MyBigNumber implements IStrCalculator {
         }
         
         // gán giá trị tham số vào 2 thuộc tính s1 s2
-        setS1(s1);
-        setS2(s2);
+        setS1(s1.equals("") ? "0" : s1);
+        setS2(s2.equals("") ? "0" : s2);
 
         // xóa các ký số '0' dư ở đầu chuỗi số s1
         while (getS1().startsWith("0") && getS1().length() > 1) {
