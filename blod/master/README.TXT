@@ -2,6 +2,8 @@
 BUILD OUTPUT DESCRIPTION
 ========================
 
+Tải file MyBigNumber.jar tại đường link https://drive.google.com/open?id=1PvubfuLzL5nixogh1cHyT6ERnj0L74g1
+
 Để chạy chương trình trên command line, chuyển đến thư mục chứa file .jar và gõ dòng lệnh sau trên cmd:
 
 java -jar MyBigNumber.jar
