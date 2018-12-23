@@ -14,7 +14,6 @@ public class MyBigNumberTest implements IReceiver{
      */
     @Test (expected = MyNumberFormatException.class)
     public void testSum1() {
-        try {
         System.out.println("\n#Testcase 1:");
         String s1 = "A";
         String s2 = "0";
@@ -23,9 +22,6 @@ public class MyBigNumberTest implements IReceiver{
         MyBigNumber instance = new MyBigNumber(this);
         instance.sum(s1, s2);
         //assertEquals(expResult, result);
-        } catch (MyNumberFormatException ex) {
-            
-        }
     }
     
     /*
