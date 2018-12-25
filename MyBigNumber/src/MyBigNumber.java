@@ -27,9 +27,9 @@ public class MyBigNumber {
      */
     public String sum(final String str1, final String str2) {      
         
-        // gán giá trị tham số vào s1 s2 và mặc định giá trị rỗng là "0"
-        String s1 = (str1.trim().equals("") ? "0" : str1);
-        String s2 = (str2.trim().equals("") ? "0" : str2);
+        // gán giá trị tham số vào s1 s2 và mặc định giá trị rỗng hoặc null là "0"
+        String s1 = (str1 == null || str1.trim().equals("") ? "0" : str1);
+        String s2 = (str2 == null || str2.trim().equals("") ? "0" : str2);
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm"); // class định dạng DateTime   
         String calSteps = ""; // mỗi phần tử chứa chuỗi biểu diễn 1 bước tính tổng
@@ -46,20 +46,42 @@ public class MyBigNumber {
         char value2; // kí số tại index2
         
         // kiểm tra tính hợp lệ của tham số s1
-        for (char c: s1.toCharArray()) {
-            if (c - '0' < 0 || c - '0' > 9) {
-                this.ireceiver.send("Chuỗi \"" + s1 + "\" chứa ký tự không hợp lệ: '" + c + "'");
-                throw new MyNumberFormatException(c,s1);
+        if (s1.startsWith("-") && s1.length() > 1) {
+            for (int i = 1; i < s1.length(); i++) {
+                if (!Character.toString(s1.charAt(i)).matches("[0-9]+")) {
+                    this.ireceiver.send("Lỗi ở tham số s1 tại vị trí " + i + ": " + s1.charAt(i));
+                    throw new NumberFormatException("Lỗi ở tham số s1 tại vị trí " + i + ": " + s1.charAt(i));
+                }
             }
-        }
-            
+            this.ireceiver.send("Chưa hỗ trợ số âm:" + s1);
+            throw new NumberFormatException("Chưa hỗ trợ số âm s1: " + s1);
+        } else {
+            for (int i = 0; i < s1.length(); i++) {
+                if (!Character.toString(s1.charAt(i)).matches("[0-9]+")) {
+                    this.ireceiver.send("Số " + s1 + " chứa ký tự không hợp lệ: " + s1.charAt(i));
+                    throw new NumberFormatException("Lỗi ở tham số s1 tại vị trí " + i + ": " + s1.charAt(i));
+                }
+            }
+        } 
+        
         // kiểm tra tính hợp lệ của tham số s2
-        for (char c: s2.toCharArray()) {
-            if (c - '0' < 0 || c - '0' > 9) {
-                this.ireceiver.send("Chuỗi \"" + s2 + "\" chứa ký tự không hợp lệ: '" + c + "'");
-                throw new MyNumberFormatException(c,s2);
+        if (s2.startsWith("-") && s2.length() > 1) {
+            for (int i = 1; i < s2.length(); i++) {
+                if (!Character.toString(s2.charAt(i)).matches("[0-9]+")) {
+                    this.ireceiver.send("Số " + s2 + " chứa ký tự không hợp lệ: " + s2.charAt(i));
+                    throw new NumberFormatException("Lỗi ở tham số s2 tại vị trí " + i + ": " + s2.charAt(i));
+                }
             }
-        }
+            this.ireceiver.send("Chưa hỗ trợ số âm: " + s2);
+            throw new NumberFormatException("Chưa hỗ trợ số âm s2: " + s2);
+        } else {
+            for (int i = 0; i < s2.length(); i++) {
+                if (!Character.toString(s2.charAt(i)).matches("[0-9]+")) {
+                    this.ireceiver.send("Lỗi ở tham số s2 tại vị trí " + i + ": " + s2.charAt(i));
+                    throw new NumberFormatException("Lỗi ở tham số s2 tại vị trí " + i + ": " + s2.charAt(i));
+                }
+            }
+        } 
         
         // xóa các ký số '0' dư ở đầu chuỗi số s1
         while (s1.startsWith("0") && s1.length() > 1) {
