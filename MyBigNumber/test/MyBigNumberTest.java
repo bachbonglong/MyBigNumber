@@ -28,7 +28,6 @@ public class MyBigNumberTest implements IReceiver{
         expected.expectMessage("Lỗi ở tham số s1 tại vị trí 3: A");
         MyBigNumber instance = new MyBigNumber(this);
         instance.sum(s1, s2);
-        //assertEquals(expResult, result);
     }
     
     /*
